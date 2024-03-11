@@ -1,0 +1,3 @@
+/home/faber/software-udvikling/Lektion5_test/build/CMakeFiles/MainTest.dir
+/home/faber/software-udvikling/Lektion5_test/build/CMakeFiles/edit_cache.dir
+/home/faber/software-udvikling/Lektion5_test/build/CMakeFiles/rebuild_cache.dir
