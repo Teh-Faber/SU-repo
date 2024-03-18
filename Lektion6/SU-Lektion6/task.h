@@ -3,13 +3,6 @@
 #include <QtSql>
 #include <QSqlDatabase>
 #include <iostream>
-#pragma once
-
-#include <string>
-#include <QCoreApplication>
-#include <QtSql>
-#include <QSqlDatabase>
-#include <iostream>
 #include<unistd.h> // for sleep on unix
 
 
@@ -40,10 +33,10 @@ int taskAdd(){
 
 
     query.prepare("INSERT INTO task "
-                  "VALUES (?, ?)");
+                  "VALUES (:desciption, :time)");
 
-    query.addBindValue(desciption);
-    query.addBindValue(time);
+    query.bindValue(":desciption", "desciption");
+    query.bindValue(":time", "time");
 
     return 1;
 

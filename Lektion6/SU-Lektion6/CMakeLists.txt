@@ -27,7 +27,7 @@ project(
 # Including header files here helps IDEs but is not required.
 # Output libname matches target name, with the usual extensions on your system
 
-find_package(Qt5Sql REQUIRED)
+find_package(Qt5 REQUIRED COMPONENTS Sql)
 
 # Link each target with other targets or add options, etc.
 add_executable(MainTest main.cpp)
