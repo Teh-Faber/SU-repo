@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
   
     QString robot_name = argv[1];
   
-    QSqlQuery query;
+   qDebug() << "\n";
 
     taskPrint();
 

@@ -9,35 +9,49 @@
 int taskPrint(){
     QSqlQuery query;
 
-    qDebug() << query.exec("SELECT * FROM task"); //task table
+    if(query.exec("SELECT * FROM task")){ // execute query and print status
+        qDebug()  << "Show Tasks: Query success";
+    }else{
+        qDebug()  << "Show Tasks: Query fail" << query.lastError() << "\n";
+    }
 
-    while (query.next()) {
+
+    qDebug() << "Desciption:" << "\t\t" << "Time:";
+
+    while (query.next()) { //Print all rows from query
         QString desciption  = query.value(1).toString();
         int     time = query.value(2).toInt();
-        qDebug() << "Desciption:" << desciption << "Time:" << time;
+        qDebug()  << desciption << "\t\t" << time;
         }
 
+    qDebug()  << "\n";
     return 1;
 }
 
 int taskAdd(){
     QSqlQuery query;
 
-    qDebug() << "Enter desciption:";
+    qDebug() << "Add task:" << "\nEnter desciption:";
     QTextStream qtin1(stdin);
     QString desciption = qtin1.readLine();
 
     qDebug() << "Enter time:";
     QTextStream qtin2(stdin);
-    QString time = qtin2.readLine();
+    int time = qtin2.readLine().toInt();
 
 
-    query.prepare("INSERT INTO task "
-                  "VALUES (:desciption, :time)");
+    query.prepare("INSERT INTO task (description, time) "
+                  "VALUES( ? , ?)");
 
-    query.bindValue(":desciption", "desciption");
-    query.bindValue(":time", "time");
+    query.addBindValue(desciption);
+    query.addBindValue(time);
 
+    if(query.exec()){ // execute query and print status
+        qDebug()  << "Query success";
+    }else{
+        qDebug()  << "Query fail:" << query.lastError() << "\n";
+    }
+
+    qDebug()  << "\n";
     return 1;
-
 }
