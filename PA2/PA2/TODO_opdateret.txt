@@ -1,0 +1,30 @@
+Exercise SQL and C++
+
+Robot og Client skal begge laves som klasser. Hver task skal være som en metode.
+Til hver løsning fra Exercise 2 skal der laves git commit.
+
+.git fil skal også afleveres, dvs. hele repository i zip fil.
+
+Exercise 0: 
+* Installer mysql og opret forbindelse til company databasen.
+
+Exercise 1: 
+* Opret sql database koden og indsæt i "task" table.
+
+Exercise 2:
+* Lav cpp kode "client.cpp" der udskriver alle opgaver
+
+Exercise 3:
+* Modificer koden til at kunne tilføje en opgave opgave til databasen fra kommando linjen.
+
+Exercise 4:
+* Lav en ny fil "robot.cpp" der kan udføre en opgave og fjerner den fra opgave listen.
+
+Exercise 5:
+* Tilføj et table af robotter, der har attributter "Name" og "Current Task"
+
+Exercise 6:
+* Modificer "robot.cpp" så robotten bliver oprettet i databasen når koden bliver startet og fjernet når det slutter.
+
+Exercise 7:
+* Modificer så når en robot udfører en opgave så tilhører opgaven denne og andre robotter kan ikke udføre den opgave.
