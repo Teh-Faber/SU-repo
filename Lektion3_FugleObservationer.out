@@ -1,0 +1,80 @@
+mysql> -- Q1: Vis navnene på de fugle som er blevet observeret på lokationen Vresen.
+mysql>  select fugl.navn 
+    ->  from observation 
+    ->  join fugl on fugl.fugl_id = observation.fugl_id
+    ->  join lokation on lokation.lokation_id = observation.lokation_id
+    ->  where lokation.navn = 'Vresen';
++-------------------+
+| navn              |
++-------------------+
+| Stor præstekrave  |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql>  
+mysql>  -- Q2:Vis det samlede observerede antal fugle, som tilhører familien brokfugle.
+mysql>  select sum(antal) 
+    ->  from familie 
+    ->  join fugl on familie.familie_id = fugl.familie_id 
+    ->  join observation on observation.fugl_id = fugl.fugl_id 
+    ->  where familie.navn = 'brokfugle';
++------------+
+| sum(antal) |
++------------+
+|         71 |
++------------+
+1 row in set (0.00 sec)
+
+mysql>  
+mysql>  -- Q3:Vis navnene på de fugle, som er blevet observeret i december måned.Hvert navn må kun forekomme én gang.
+mysql>  select fugl.navn
+    ->  from fugl
+    ->  join observation on observation.fugl_id = fugl.fugl_id
+    ->  where 12 = month(dato);
++-----------+
+| navn      |
++-----------+
+| Blåmejse  |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> -- Q4:Vis navnene på de lokationer, hvor der er observeret fugle af familien corvidae.
+mysql>  select l.navn  
+    ->  from familie as ff 
+    ->  join fugl as f on ff.familie_id = f.familie_id   
+    ->  join observation as o on o.fugl_id = f.fugl_id  
+    ->  join lokation as l on l.lokation_id = o.lokation_id 
+    ->  where ff.latinsknavn = 'Corvidae';
++-------------+
+| navn        |
++-------------+
+| Enebærodde  |
+| Knudshoved  |
++-------------+
+2 rows in set (0.00 sec)
+
+mysql>  
+mysql> -- Q5:Vis datoen for databasens ældste observation.
+mysql>  select min(dato)
+    ->  from observation;
++------------+
+| min(dato)  |
++------------+
+| 1996-02-01 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> -- Q6:Vis navnene på de lokationer, som ikke har observationer.
+mysql>  select l.navn
+    ->  from lokation as l 
+    ->  where lokation_id not in (select lokation_id from observation);
++---------------+
+| navn          |
++---------------+
+| Gamborg Fjord |
++---------------+
+1 row in set (0.01 sec)
+
+mysql> \t

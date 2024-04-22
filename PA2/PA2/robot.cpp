@@ -4,7 +4,6 @@
 #include "robot.h"
 
 robot::robot(QString name): _name(name){
-    initiateRobots();
 }
 
 int robot::doTask(){

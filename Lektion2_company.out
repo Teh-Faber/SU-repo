@@ -1,0 +1,111 @@
+mysql> -- Q1:Vis navn og adresse på samtlige medarbejdere i ‘research’-afdelingen.
+mysql> select fname, lname, address 
+    -> from employee 
+    -> where employee.dno = (select dnumber from department where dname = 'research');
++----------+---------+------------------------------+
+| fname    | lname   | address                      |
++----------+---------+------------------------------+
+| John     | Smith   | 731 Fondren, Houston TX      |
+| Franklin | Wong    | 638 Voss, Houston TX         |
+| Joyce    | English | 211 Chalon Street, Austin TX |
+| Ramesh   | Narayan | 975 Fire Oak, Humble TX      |
++----------+---------+------------------------------+
+4 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- Q2:Vis fornavn og fødselsdag på John Smiths kone.
+mysql> select dependent_name, bdate 
+    -> from dependent 
+    -> where relationship = 'Spouse' 
+    -> AND essn = ( select ssn from employee where fname = 'John' AND lname = 'Smith');
++----------------+------------+
+| dependent_name | bdate      |
++----------------+------------+
+| Elizabeth      | 1967-05-05 |
++----------------+------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> -- Q3:Vis navn på alle chefer.
+mysql> select fname, lname 
+    -> from employee 
+    -> where ssn in (select superssn from employee);
++----------+---------+
+| fname    | lname   |
++----------+---------+
+| Franklin | Wong    |
+| James    | Borg    |
+| Jennifer | Wallace |
++----------+---------+
+3 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- Q4:Vis ansattes navn og fødselsdag sorteret efter alder.
+mysql> select fname, lname, bdate 
+    -> from employee 
+    -> order by bdate asc;
++----------+------------+------------+
+| fname    | lname      | bdate      |
++----------+------------+------------+
+| James    | Borg       | 1937-11-10 |
+| Jennifer | Wallace    | 1941-06-20 |
+| Harold   | S. Viehman | 1947-10-18 |
+| Ramesh   | Narayan    | 1962-09-15 |
+| John     | Smith      | 1965-01-09 |
+| Franklin | Wong       | 1965-12-08 |
+| Alicia   | Zelaya     | 1968-01-19 |
+| Ahmad    | Jabbar     | 1969-03-29 |
+| Joyce    | English    | 1972-07-31 |
++----------+------------+------------+
+9 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- Q5:Opret ny dependent, som hedder Joe, er født den 12. december 1992 og søn af 123456789.
+mysql> insert into dependent values('123456789','Joe','M','1992-12-12','Son');
+mysql> 
+mysql> -- Q6:Opret ny ansat  Harold S. Viehmanfødt den 18. oktober 1947. Han bor på adressen 840 Belfry Drive, Lansdale, Pa. og har social security number 569123456. Han skal have arbejdsplads i Stafford og Jennifer Wallace som chef. Løn: $ 45.000.
+mysql> insert into employee values('Harold','S. Viehman','569123456','1947-10-18','840 Belfry Drive, Lansdale PA','M','45000','987654321','4');
+mysql> 
+mysql> -- Q7:Joyce English er flyttet til adressen 211 Chalon Street, Austin, Texas.
+mysql> update employee 
+    -> set address = '211 Chalon Street, Austin TX' 
+    -> where ssn = '453453453';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> -- Q8:Jennifer Wallaces mand er afgået ved døden.
+mysql> delete from dependent 
+    -> where relationship = 'spouse' 
+    -> and essn = (
+    -> select ssn 
+    -> from employee 
+    -> where fname = 'jennifer' and lname = 'wallace');
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> 
+mysql> -- Q9:Vis navn og adresse på ansatte, som ikke bor i Texas.
+mysql> select fname, lname, address 
+    -> from employee 
+    -> where address not like '%tx%';
++--------+------------+-------------------------------+
+| fname  | lname      | address                       |
++--------+------------+-------------------------------+
+| Harold | S. Viehman | 840 Belfry Drive, Lansdale PA |
++--------+------------+-------------------------------+
+1 row in set (0.00 sec)
+
+mysql> 
+mysql> -- Q10:Vis navnene på de ansatte, som tjener over $ 40.000.
+mysql> select fname, lname 
+    -> from employee 
+    -> where salary > '40000';
++----------+------------+
+| fname    | lname      |
++----------+------------+
+| Harold   | S. Viehman |
+| James    | Borg       |
+| Jennifer | Wallace    |
++----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> \t

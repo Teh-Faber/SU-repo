@@ -10,7 +10,7 @@ int main()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("localhost");
-    db.setDatabaseName("robot_worker"); // Ret til det schema navn du har valgt
+    db.setDatabaseName("company"); // Ret til det schema navn du har valgt
     db.setUserName("root");  // Ret brugernavn
     db.setPassword("password");  // Ret password
     db.open();

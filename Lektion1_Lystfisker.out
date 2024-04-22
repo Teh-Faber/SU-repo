@@ -1,0 +1,62 @@
+mysql> -- Q1: Vis navnene på samtlige fisk i stigende alfabetisk orden.
+mysql> SELECT fisk.navn 
+    -> FROM fisk 
+    -> ORDER BY navn;
++----------+
+| navn     |
++----------+
+| Hornfisk |
+| Laks     |
+| Makrel   |
+| Skrubbe  |
+| Torsk    |
++----------+
+5 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- Q2: Vis navnet på fangstpladser, hvor der er fisket i oktober måned. 
+mysql> SELECT plads.navn 
+    -> FROM plads, fisketur 
+    -> WHERE plads.plads_id = fisketur.plads_id AND 
+    -> MONTH(fisketur.dato) = 10;
++----------+
+| navn     |
++----------+
+| Gabet    |
+| Kajbjerg |
++----------+
+2 rows in set (0.00 sec)
+
+mysql> 
+mysql> -- Q3: Vis datoer på samtlige fisketure og navnet på fangstpladsen.
+mysql> SELECT plads.navn, fisketur.dato 
+    -> FROM plads, fisketur 
+    -> WHERE plads.plads_id = fisketur.plads_id;
++------------+------------+
+| navn       | dato       |
++------------+------------+
+| Knudshoved | 2019-12-11 |
+| Knudshoved | 2020-01-02 |
+| Vresen     | 2019-11-23 |
+| Fyns Hoved | 2019-06-12 |
+| Gabet      | 2018-10-18 |
+| Kajbjerg   | 2014-10-14 |
++------------+------------+
+6 rows in set (0.00 sec)
+
+mysql>  
+mysql> -- Q4: Vis navne på de redskaber, der er fisket med ved Kajbjerg.
+mysql> SELECT redskab.navn 
+    -> FROM redskab, fangst, fisketur, plads 
+    -> WHERE redskab.redskab_id = fangst.redskab_id AND 
+    -> fangst.fisketur_id = fisketur.fisketur_id AND 
+    -> fisketur.plads_id = plads.plads_id AND 
+    ->     plads.navn = 'Kajbjerg';
++--------------+
+| navn         |
++--------------+
+| Blankt blink |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> \t

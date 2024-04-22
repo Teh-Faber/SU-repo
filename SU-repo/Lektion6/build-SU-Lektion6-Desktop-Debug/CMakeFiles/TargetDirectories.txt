@@ -1,0 +1,4 @@
+/home/faber/software-udvikling/SU-repo/Lektion6/build-SU-Lektion6-Desktop-Debug/CMakeFiles/MainTest.dir
+/home/faber/software-udvikling/SU-repo/Lektion6/build-SU-Lektion6-Desktop-Debug/CMakeFiles/MainRobot.dir
+/home/faber/software-udvikling/SU-repo/Lektion6/build-SU-Lektion6-Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/faber/software-udvikling/SU-repo/Lektion6/build-SU-Lektion6-Desktop-Debug/CMakeFiles/rebuild_cache.dir
