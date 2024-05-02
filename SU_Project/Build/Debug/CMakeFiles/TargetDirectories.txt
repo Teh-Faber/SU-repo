@@ -1,0 +1,3 @@
+/home/faber/software-udvikling/SU_Project/Build/Debug/CMakeFiles/src.dir
+/home/faber/software-udvikling/SU_Project/Build/Debug/CMakeFiles/edit_cache.dir
+/home/faber/software-udvikling/SU_Project/Build/Debug/CMakeFiles/rebuild_cache.dir

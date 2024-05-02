@@ -1,0 +1,3 @@
+/home/faber/software-udvikling/SU_Project/Build/build-src-Desktop-RelWithDebInfo/CMakeFiles/src.dir
+/home/faber/software-udvikling/SU_Project/Build/build-src-Desktop-RelWithDebInfo/CMakeFiles/edit_cache.dir
+/home/faber/software-udvikling/SU_Project/Build/build-src-Desktop-RelWithDebInfo/CMakeFiles/rebuild_cache.dir
