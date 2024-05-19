@@ -10,7 +10,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "/home/faber/software-udvikling/SU_Project/Build/Debug/CMakeFiles/3.22.1/CMakeSystem.cmake"
+			"path" : "/home/faber/software-udvikling/SU_Project/Build/Release/CMakeFiles/3.22.1/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -19,7 +19,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "/home/faber/software-udvikling/SU_Project/Build/Debug/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
+			"path" : "/home/faber/software-udvikling/SU_Project/Build/Release/CMakeFiles/3.22.1/CMakeCXXCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -135,7 +135,7 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/faber/software-udvikling/SU_Project/Build/Debug",
+		"build" : "/home/faber/software-udvikling/SU_Project/Build/Release",
 		"source" : "/home/faber/software-udvikling/SU_Project/src"
 	},
 	"version" : 

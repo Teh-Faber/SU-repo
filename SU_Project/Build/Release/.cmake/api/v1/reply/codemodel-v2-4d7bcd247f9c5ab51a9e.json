@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-RelWithDebInfo-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "RelWithDebInfo",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "src::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-src-RelWithDebInfo-2201ae6610d8c2cbfe8c.json",
+					"jsonFile" : "target-src-Release-2594a1933d403ce17184.json",
 					"name" : "src",
 					"projectIndex" : 0
 				}
@@ -49,7 +49,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/faber/software-udvikling/SU_Project/Build/build-src-Desktop-RelWithDebInfo",
+		"build" : "/home/faber/software-udvikling/SU_Project/Build/Release",
 		"source" : "/home/faber/software-udvikling/SU_Project/src"
 	},
 	"version" : 

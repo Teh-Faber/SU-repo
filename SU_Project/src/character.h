@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtSql>
-
+#include <unistd.h>
 
 class Character{
 public:
@@ -14,11 +14,13 @@ public:
 
     virtual bool attack(Character& oppenent){
 
+        usleep(100000); // wait for a bit
+
         qDebug() << "-----------------------------";
         qDebug() << name << "attacks" << oppenent.name;
         qDebug() << "Press enter to continue";
 
-        // wait for a keypress
+        // wait for a enter keypress
         QTextStream cin(stdin);
         forever {
             QString line = cin.readLine();
@@ -32,7 +34,7 @@ public:
         qDebug() << oppenent.name << "took" << strength << "points of damage. Leaving them at" << oppenent.hp << "hp";
 
         if(oppenent.hp <= 0){
-            qDebug() << "----------------------------";
+            qDebug() << "----------------------------" << "\n";
             qDebug() << name << "defeated" << oppenent.name;
             return false;// return false when oppenent dies
         }
