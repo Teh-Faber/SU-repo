@@ -7,16 +7,20 @@ class Character{
 public:
     QString name;
     int hp;
-    int strength;
+    int damage;
     int xp;
 
-    Character(QString name, int hp, int strength, int xp): name(name), hp(hp), strength(strength), xp(xp){}
+    Character(QString name, int hp, int damage, int xp): name(name), hp(hp), damage(damage), xp(xp){}
+
+    // hero no longer has fixed damage
+    Character(QString name, int hp, int xp): name(name), hp(hp), damage(0), xp(xp){}
+
 
     virtual bool attack(Character& oppenent){
 
-        usleep(100000); // wait for a bit
+        usleep(300000); // wait for a bit
 
-        qDebug() << "-----------------------------";
+        qDebug() << "\n-----------------------------";
         qDebug() << name << "attacks" << oppenent.name;
         qDebug() << "Press enter to continue";
 
@@ -29,9 +33,9 @@ public:
         }
 
         // calculate new hp
-        oppenent.hp -= strength;
+        oppenent.hp -= damage;
 
-        qDebug() << oppenent.name << "took" << strength << "points of damage. Leaving them at" << oppenent.hp << "hp";
+        qDebug() << oppenent.name << "took" << damage << "points of damage. Leaving them at" << oppenent.hp << "hp";
 
         if(oppenent.hp <= 0){
             qDebug() << "----------------------------" << "\n";

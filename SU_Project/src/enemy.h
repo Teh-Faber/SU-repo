@@ -5,8 +5,11 @@
 
 
 class Enemy: public Character{
-
 public:
-    Enemy(QString name, int hp, int strength, int xp): Character(name, hp, strength, xp){}
+
+    int element_id;
+    QString element;
+
+    Enemy(QString name, int hp, int strength, int xp, int element_id, QString element): Character(name, hp, strength, xp), element_id(element_id), element(element){}
 };
 
